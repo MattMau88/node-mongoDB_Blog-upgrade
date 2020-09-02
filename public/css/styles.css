@@ -3,6 +3,10 @@ html {
   position: relative;
 }
 
+h2 {
+  color: #A9CEF4;
+}
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
