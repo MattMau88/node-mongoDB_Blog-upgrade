@@ -21,16 +21,12 @@ app.use(express.static("public"));
 // local DB setup
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true, useUnifiedTopology: true}).catch(error => console.log(error));
 // cloud MongoDB-Atlas setup
-//const mongoDbURIold = "mongodb://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@cluster0-shard-00-00-zcbag.mongodb.net:27017,cluster0-shard-00-01-zcbag.mongodb.net:27017,cluster0-shard-00-02-xvnqv.mongodb.net:27017/blogDB?ssl=true&replicaSet=Cluster0-shard-0&authSource=test&retryWrites=true&w=majority";
-const mongoDbURInew = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@" + process.env.DB_CLUSTER + ".zrs4w.mongodb.net/blogDB?retryWrites=true&w=majority";
-
-mongoose.connect(mongoDbURInew, {useNewUrlParser: true, useUnifiedTopology: true}).catch(error => console.log(error));
+const mongoDbURI = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@" + process.env.DB_CLUSTER + ".zrs4w.mongodb.net/blogDB?retryWrites=true&w=majority";
+mongoose.connect(mongoDbURI, {useNewUrlParser: true, useUnifiedTopology: true}).catch(error => console.log(error));
 
 const postSchema = {
-
  title: String,
  content: String
-
 };
 
 const Post = mongoose.model("Post", postSchema);
